@@ -6,14 +6,14 @@ import (
 	"gopkg.in/yaml.v3"
 )
 
-func NewConfigurationFromYamlFile[T any](config T, configFilePath string) error {
+func NewConfigurationFromYamlFile[T any](config T, configFilePath string) (T, error) {
 	configData, err := os.ReadFile(configFilePath)
 	if err != nil {
-		return err
+		return config, err
 	}
 	err = yaml.Unmarshal(configData, &config)
 	if err != nil {
-		return err
+		return config, err
 	}
-	return err
+	return config, err
 }
