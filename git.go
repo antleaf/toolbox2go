@@ -13,16 +13,14 @@ import (
 
 type GitRepo struct {
 	CloneID       string
-	RepoName      string
 	BranchName    string
 	BranchRef     string
 	RepoLocalPath string
 }
 
-func NewGitRepo(cloneID, repoName, branchName, localPath string) GitRepo {
+func NewGitRepo(cloneID, branchName, localPath string) GitRepo {
 	var g = GitRepo{
 		CloneID:       cloneID,
-		RepoName:      repoName,
 		BranchName:    branchName,
 		RepoLocalPath: localPath,
 	}
